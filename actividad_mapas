@@ -1,0 +1,104 @@
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
+
+# Leer la base de datos de Twitter
+twitter_df = pd.read_csv('nombre_del_archivo.csv')
+
+# Diagrama de caja (boxplot) para la columna Tweet_ID
+plt.figure(figsize=(8, 6))
+sns.boxplot(x=twitter_df['Tweet_ID'])
+plt.title('Diagrama de Caja de Tweet_ID')
+plt.xlabel('Tweet_ID')
+plt.show()
+
+# Diagrama de caja (boxplot) para la columna Username
+plt.figure(figsize=(8, 6))
+sns.boxplot(x=twitter_df['Username'])
+plt.title('Diagrama de Caja de Username')
+plt.xlabel('Username')
+plt.show()
+
+# Diagrama de caja (boxplot) para la columna Text
+plt.figure(figsize=(8, 6))
+sns.boxplot(x=twitter_df['Text'])
+plt.title('Diagrama de Caja de Text')
+plt.xlabel('Text')
+plt.show()
+
+# Diagrama de caja (boxplot) para la columna Retweets
+plt.figure(figsize=(8, 6))
+sns.boxplot(x=twitter_df['Retweets'])
+plt.title('Diagrama de Caja de Retweets')
+plt.xlabel('Retweets')
+plt.show()
+
+# Diagrama de caja (boxplot) para la columna Likes
+plt.figure(figsize=(8, 6))
+sns.boxplot(x=twitter_df['Likes'])
+plt.title('Diagrama de Caja de Likes')
+plt.xlabel('Likes')
+plt.show()
+
+# Diagrama de caja (boxplot) para la columna Timestamp
+plt.figure(figsize=(8, 6))
+sns.boxplot(x=twitter_df['Timestamp'])
+plt.title('Diagrama de Caja de Timestamp')
+plt.xlabel('Timestamp')
+plt.show()
+
+# Histograma para la columna Tweet_ID
+plt.figure(figsize=(8, 6))
+sns.histplot(twitter_df['Tweet_ID'], bins=20, kde=True, color='skyblue')
+plt.title('Histograma de Tweet_ID')
+plt.xlabel('Tweet_ID')
+plt.ylabel('Frecuencia')
+plt.show()
+
+# Histograma para la columna Username
+plt.figure(figsize=(8, 6))
+sns.histplot(twitter_df['Username'], bins=20, kde=True, color='skyblue')
+plt.title('Histograma de Username')
+plt.xlabel('Username')
+plt.ylabel('Frecuencia')
+plt.show()
+
+# Histograma para la columna Text
+plt.figure(figsize=(8, 6))
+sns.histplot(twitter_df['Text'], bins=20, kde=True, color='skyblue')
+plt.title('Histograma de Text')
+plt.xlabel('Text')
+plt.ylabel('Frecuencia')
+plt.show()
+
+# Histograma para la columna Retweets
+plt.figure(figsize=(8, 6))
+sns.histplot(twitter_df['Retweets'], bins=20, kde=True, color='skyblue')
+plt.title('Histograma de Retweets')
+plt.xlabel('Retweets')
+plt.ylabel('Frecuencia')
+plt.show()
+
+# Histograma para la columna Likes
+plt.figure(figsize=(8, 6))
+sns.histplot(twitter_df['Likes'], bins=20, kde=True, color='skyblue')
+plt.title('Histograma de Likes')
+plt.xlabel('Likes')
+plt.ylabel('Frecuencia')
+plt.show()
+
+# Histograma para la columna Timestamp
+plt.figure(figsize=(8, 6))
+sns.histplot(twitter_df['Timestamp'], bins=20, kde=True, color='skyblue')
+plt.title('Histograma de Timestamp')
+plt.xlabel('Timestamp')
+plt.ylabel('Frecuencia')
+plt.show()
+
+# Mapa de calor de correlación
+numeric_columns = twitter_df.select_dtypes(include=['float64', 'int64'])
+correlation_matrix = numeric_columns.corr()
+plt.figure(figsize=(8, 6))
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f", linewidths=.5)
+plt.title('Mapa de Calor de Correlación')
+plt.show()
